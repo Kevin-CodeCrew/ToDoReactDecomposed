@@ -5,7 +5,7 @@ class AddToDo extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            title: ''
+            todoText: ''
         };
         this.onChange = this.onChange.bind(this); // We need this bind to keep up with 'this'
     }
@@ -20,16 +20,17 @@ class AddToDo extends Component {
         return (
             <div>
                 <div>
-                    <label>New To Do: </label>
                     <br/>
                     <input
                         type="text"
                         name="title"
+                        placeholder ="Enter a To Do..."
                         onChange={this.onChange}
-                        value={this.state.title}
+                        value={this.state.todoText}
                     />
                 </div>
-                <button onClick={() => this.props.clicked(this.state.title)}>Add</button>
+                {/*Pass the enter To Do item to Parent callback*/}
+                <button onClick={() => this.props.clicked(this.state.todoText)}>Add</button>
                 <hr/>
             </div>
         );

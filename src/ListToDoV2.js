@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import Moment from 'react-moment'; // What can I say, u need date/time stuff? then u need this
 
-// A second version of the ToDo list display
+// A second version of the To Do list display
 class ListToDoV2 extends Component {
     // Render or Bender Bending Rodríguez
     render() {
@@ -24,7 +24,7 @@ class ListToDoV2 extends Component {
                         <th>
                             Status
                         </th>
-
+<th></th><th></th>
                     </tr>
                     </thead>
                     <tbody>
@@ -36,9 +36,12 @@ class ListToDoV2 extends Component {
                                 <td>{item.todo}</td>
                                 <td>{item.isDone ? 'Complete' : 'Incomplete'}</td>
                                 <td>
-                                    <button id={item._id} onClick={() => this.props.clickedComplete(item._id)}>Mark
-                                        Complete
-                                    </button>
+                                    {/*Only display mark complete button if not already complete*/}
+                                    {!item.isDone ?
+                                        <button id={item._id} onClick={() => this.props.clickedComplete(item._id)}>Mark
+                                            Complete
+                                        </button>
+                                        : ''}
                                 </td>
                                 <td>
                                     <button id={item._id} onClick={() => this.props.clickedDelete(item._id)}>Delete
